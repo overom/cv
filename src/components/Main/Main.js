@@ -5,14 +5,9 @@ import "./main.css";
 
 const Main = () => {
   const [showDesktopWindow, setShowDesktopWindow] = useState(false);
-  //   const [controlledPosition, setControlledPosition] = useState({
-  //     desktop: { x: 40, y: 40 },
-  //     files: { x: 40, y: 40 },
-  //   });
-
   const [controlledPosition, setControlledPosition] = useState({
-    x: 40,
-    y: 40,
+    desktop: { x: 40, y: 40 },
+    files: { x: 40, y: 40 },
   });
 
   const [desktopControlledPosition, setDesktopControlledPosition] = useState({
@@ -38,7 +33,7 @@ const Main = () => {
     <div>
       <Icon
         iconClassName="desktop-icon-background"
-        position={desktopControlledPosition}
+        position={controlledPosition.desktop}
         onDrag={onControlledDragDesktop}
         onClick={toggleDesktopWindow}
         toggleWindow={toggleDesktopWindow}
