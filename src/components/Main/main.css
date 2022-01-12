@@ -1,0 +1,31 @@
+.windows-button {
+  display: block;
+  -moz-appearance: none;
+  appearance: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.45em 0.75em;
+  border-left: 2px solid #ededed;
+  border-top: 2px solid #ededed;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
+.icon-container {
+  cursor: pointer;
+  width: 50px;
+}
+
+.folder-icon-background {
+  width: 100px;
+  height: 100px;
+  background: url("../../assets/directory_closed-3.png") no-repeat;
+  background-size: 50px 50px;
+}
+
+.desktop-icon-background {
+  width: 100px;
+  height: 100px;
+  background: url("../../assets/computer.png") no-repeat;
+  background-size: 50px 50px;
+}
