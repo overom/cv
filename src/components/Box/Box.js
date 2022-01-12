@@ -2,10 +2,9 @@ import React from "react";
 import { useState } from "react/cjs/react.development";
 import close from "../../assets/close-icon.png";
 import Draggable from "react-draggable";
+import { Resizable } from "react-resizable";
 
-const { Resizable } = require("react-resizable");
-
-const Box = ({ title, content, toggleWindow, controlledPosition }) => {
+const Box = ({ title, content, onClose, controlledPosition }) => {
   const [state, setState] = useState({
     width: 200,
     height: 200,
@@ -43,8 +42,8 @@ const Box = ({ title, content, toggleWindow, controlledPosition }) => {
               backgroundColor: "silver",
               cursor: state.isGrabing ? "grabbing" : "grab",
             }}
-            onMouseDown={() => setState({ isGrabing: true })}
-            onMouseUp={() => setState({ isGrabing: false })}
+            onMouseDown={() => setState({ ...state, isGrabing: true })}
+            onMouseUp={() => setState({ ...state, isGrabing: false })}
           >
             <div style={{ backgroundColor: "navy", height: "20px" }}>
               <span
@@ -69,7 +68,7 @@ const Box = ({ title, content, toggleWindow, controlledPosition }) => {
             >
               <button
                 style={{ padding: "0", height: "16px", cursor: "pointer" }}
-                onClick={toggleWindow}
+                onClick={onClose}
               >
                 <img src={close} alt="close" />
               </button>

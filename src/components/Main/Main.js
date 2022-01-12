@@ -5,45 +5,53 @@ import "./main.css";
 
 const Main = () => {
   const [showDesktopWindow, setShowDesktopWindow] = useState(false);
+  const [showFilesWindow, setShowFilesWindow] = useState(false);
   const [controlledPosition, setControlledPosition] = useState({
     desktop: { x: 40, y: 40 },
     files: { x: 40, y: 40 },
   });
 
-  const [desktopControlledPosition, setDesktopControlledPosition] = useState({
-    x: 40,
-    y: 40,
-  });
-
-  const toggleDesktopWindow = () => {
-    setShowDesktopWindow(!showDesktopWindow);
+  const onOpenDesktopWindow = () => {
+    setShowDesktopWindow(true);
   };
 
-  const onControlledDrag = (e, position) => {
-    const { x, y } = position;
-    setControlledPosition({ x, y });
+  const onOpenFilesWindow = () => {
+    setShowFilesWindow(true);
   };
 
-  const onControlledDragDesktop = (e, position) => {
+  const onCloseFilesWindow = () => {
+    setShowFilesWindow(false);
+  };
+
+  const onCloseDesktopWindow = () => {
+    setShowDesktopWindow(false);
+  };
+
+  const onControlledDrag = (e, position, name) => {
     const { x, y } = position;
-    setDesktopControlledPosition({ x, y });
+    setControlledPosition({ ...controlledPosition, [name]: { x, y } });
   };
 
   return (
     <div>
       <Icon
+        name="desktop"
         iconClassName="desktop-icon-background"
         position={controlledPosition.desktop}
-        onDrag={onControlledDragDesktop}
-        onClick={toggleDesktopWindow}
-        toggleWindow={toggleDesktopWindow}
+        onDrag={onControlledDrag}
+        onOpen={onOpenDesktopWindow}
+        onClose={onCloseDesktopWindow}
         showWindow={showDesktopWindow}
       />
 
       <Icon
+        name="files"
         iconClassName="folder-icon-background"
-        position={controlledPosition}
+        position={controlledPosition.files}
         onDrag={onControlledDrag}
+        onOpen={onOpenFilesWindow}
+        onClose={onCloseFilesWindow}
+        showWindow={showFilesWindow}
       />
     </div>
   );

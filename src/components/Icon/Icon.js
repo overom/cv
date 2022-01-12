@@ -3,17 +3,18 @@ import Draggable from "react-draggable";
 import Box from "../Box/Box";
 
 const Icon = ({
-  onClick,
+  onOpen,
+  onClose,
   position,
   onDrag,
   iconClassName,
-  toggleWindow,
   showWindow,
+  name,
 }) => {
   return (
     <>
-      <div onClick={onClick}>
-        <Draggable position={position} onDrag={onDrag}>
+      <div onDoubleClick={onOpen}>
+        <Draggable position={position} onDrag={(e, p) => onDrag(e, p, name)}>
           <div className={iconClassName} />
         </Draggable>
       </div>
@@ -22,7 +23,7 @@ const Icon = ({
         <Box
           title="Windows CV viewer"
           content="Helloooo"
-          toggleWindow={toggleWindow}
+          onClose={onClose}
           controlledPosition={position}
         />
       )}
