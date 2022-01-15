@@ -16,16 +16,39 @@
   width: 50px;
 }
 
-.folder-icon-background {
+.icon {
   width: 100px;
-  height: 100px;
+  height: 55px;
+}
+
+.folder-icon-background {
   background: url("../../assets/directory_closed-3.png") no-repeat;
   background-size: 50px 50px;
 }
 
 .desktop-icon-background {
-  width: 100px;
-  height: 100px;
   background: url("../../assets/computer.png") no-repeat;
   background-size: 50px 50px;
+}
+
+.folder-contact-background {
+  background: url("../../assets/address.png") no-repeat;
+  background-size: 50px 50px;
+}
+
+.folder-briefcase-background {
+  background: url("../../assets/briefcase.png") no-repeat;
+  background-size: 50px 50px;
+}
+
+.alerts-border {
+  border: 3px silver solid;
+  animation: blink 0.2s;
+  animation-iteration-count: 3;
+}
+
+@keyframes blink {
+  50% {
+    border-color: navy;
+  }
 }
